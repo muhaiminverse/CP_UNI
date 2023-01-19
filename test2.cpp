@@ -43,9 +43,9 @@ public:
     }
 
     ///getsize
-    void getsize()
+    int getsize()
     {
-        cout<<"size "<<sz;
+        sz;
     }
     ///Prints the linked list
     void Traverse()
@@ -59,39 +59,6 @@ public:
         cout<<"\n";
     }
 
-    ///Search for a single value
-    int SearchDistincValue(int value)
-    {
-        int index=0;
-        node* a = head;
-        while(a!=NULL)
-        {
-            if(a->data==value)
-                {
-                    return index;
-                }
-            a= a->next;
-            index++;
-        }
-        return -1;
-    }
-
-    ///search all possible occurrence
-    int SearchAllValue(int value)
-    {
-int index=0;
-        node* a = head;
-        while(a!=NULL)
-        {
-            if(a->data==value)
-                {
-                    cout<<value<<" is found at index "<<index<<"\n";
-                }
-            a= a->next;
-            index++;
-        }
-        return -1;
-    }
 
 
     ///insert at any index
@@ -153,42 +120,6 @@ int index=0;
         a->next=b->next;
         delete b;
     }
-    ///insert  after a value
-    void InsertAftherValue(int value, int data)
-    {
-
-        node *a=head;
-        while(a!=NULL)
-        {
-           if(a->data==value)
-           {
-               break;//this means we found the value we were looking for
-           }
-           a=a->next;
-        }
-        if(a==NULL)
-        {
-            cout<<value<<" does not exist";
-            return;
-        }
-        node *newnode = CreateNewNode(data);
-        newnode->next=a->next;
-        a->next=newnode;
-        sz++;
-    }
-    void ReversePrint2(node*a)
-    {
-        if(a==NULL)
-            return;
-        ReversePrint2(a->next);
-        cout<<a->data<<" ";
-
-    }
-void ReversePrint()
-        {
-            ReversePrint2(head);
-
-        }
 };
 
 int main()
@@ -203,21 +134,13 @@ int main()
 
     l.Traverse();
 
-    cout<<"10 is found at "<<l.SearchDistincValue(10)<<"\n";
 
-    cout<<"5 is found at "<<l.SearchDistincValue(5)<<"\n";
-    cout<<"30 is found at "<<l.SearchDistincValue(30)<<"\n";
-
-    l.SearchAllValue(30);
     l.insert_any_index(2,100);
     l.Traverse();
 
     l.DeleteAnyIndex(3);
     l.Traverse();
-    cout<<"insert after a value"<<"\n";
-    l.InsertAftherValue(30,101);
-    l.Traverse();
-    l.ReversePrint();
 
     return 0;
 }
+
