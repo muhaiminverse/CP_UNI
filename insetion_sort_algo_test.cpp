@@ -8,10 +8,10 @@ int main()
 
     for(int i=1; i<a.size(); i++)
     {
-        int idx=i;
-        while(i>=1)
+
+        while(1<=i)
         {
-            if(a[i-1]<a[i])
+            if(a[i-1]>a[i])
             {
                 swap(a[i-1],a[i]);
                 i--;

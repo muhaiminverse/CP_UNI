@@ -1,17 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class node{
+class node
+{
 public:
     int data;
     node* next;
 
 };
-class LinkedList{
+class LinkedList
+{
 public:
     node *head;
 
-    LinkedList(){
+    LinkedList()
+    {
         head==NULL;
     }
     node* CreateNewNode(int value)
@@ -26,12 +29,12 @@ public:
     {
         node *a= CreateNewNode(value);
         if(head==NULL)
-    {
+        {
+            head=a;
+            return;
+        }
+        a->next=head;
         head=a;
-        return;
-    }
-    a->next=head;
-    head=a;
     }
 
     void Traverse()
@@ -43,18 +46,18 @@ public:
             a=a->next;
         }
         cout<<"\n";
-        }
+    }
 
-     int SearchDistincValue(int value)
+    int SearchDistincValue(int value)
     {
         int index=0;
         node* a = head;
         while(a!=NULL)
         {
             if(a->data==value)
-                {
-                    return index;
-                }
+            {
+                return index;
+            }
             a= a->next;
             index++;
         }
